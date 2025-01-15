@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :simulations
   get "dashboard/show"
   get "home/index"
   root "home#index"

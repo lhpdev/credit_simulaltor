@@ -1,0 +1,37 @@
+<h1>Create a New Simulation</h1>
+
+<%= form_with(model: simulation) do |form| %>
+  <% if simulation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(simulation.errors.count, "error") %> prohibited this simulation from being saved:</h2>
+
+      <ul>
+        <% simulation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <div>
+      <%= form.label :value, "User ID" %>
+      <%= form.number_field :user_id, required: true %>
+    </div>
+    <div>
+      <%= form.label :value, "Value" %>
+      <%= form.number_field :value, step: 0.01, required: true %>
+    </div>
+    <div>
+      <%= form.label :birthdate, "Birthdate" %>
+      <%= form.date_field :birthdate, required: true %>
+    </div>
+    <div>
+      <%= form.label :term_in_months, "Term in Months" %>
+      <%= form.number_field :term_in_months, min: 1, required: true %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>

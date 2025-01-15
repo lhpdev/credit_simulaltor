@@ -5,20 +5,32 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Rails version
+  8.0.0
 
-* System dependencies
+- Ruby version
+  3.4.1
 
-* Configuration
+- System dependencies
+  Postgres
 
-* Database creation
+- Configuration
+  bundle install
 
-* Database initialization
+- Database creation
+  bin/rails db:create
 
-* How to run the test suite
+- Database initialization
+  bin/rails db:setup
 
-* Services (job queues, cache servers, search engines, etc.)
+- How to run the test suite
+  bundle exec rspec
 
-* Deployment instructions
+- Services (job queues, cache servers, search engines, etc.)
 
-* ...
+- Deployment instructions
+
+- Running instructions
+  bin/rails server
+
+- ...

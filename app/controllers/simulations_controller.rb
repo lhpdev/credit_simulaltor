@@ -23,9 +23,14 @@ class SimulationsController < ApplicationController
   # POST /simulations or /simulations.json
   def create
     @simulation = Simulation.new(simulation_params)
-
     respond_to do |format|
       if @simulation.save
+        @proposal = CreditSimulationService.new(
+          loan_value: @simulation.value,
+          birthdate: @simulation.birthdate,
+          terms_in_months: @simulation.term_in_months
+        ).call
+
         format.html { redirect_to @simulation, notice: "Simulation was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }

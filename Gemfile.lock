@@ -85,7 +85,9 @@ GEM
       msgpack (~> 1.2)
     brakeman (7.0.0)
       racc
+    bson (5.0.2)
     builder (3.3.0)
+    byebug (11.1.3)
     concurrent-ruby (1.3.4)
     connection_pool (2.5.0)
     crass (1.0.6)
@@ -143,6 +145,12 @@ GEM
     marcel (1.0.4)
     mini_mime (1.1.5)
     minitest (5.25.4)
+    mongo (2.21.0)
+      bson (>= 4.14.1, < 6.0.0)
+    mongoid (9.0.4)
+      activemodel (>= 5.1, < 8.1, != 7.0.0)
+      concurrent-ruby (>= 1.0.5, < 2.0)
+      mongo (>= 2.18.0, < 3.0.0)
     msgpack (1.7.5)
     net-imap (0.5.5)
       date
@@ -353,10 +361,12 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   brakeman
+  byebug
   debug
   importmap-rails
   jbuilder
   kamal
+  mongoid
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)

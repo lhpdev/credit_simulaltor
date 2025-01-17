@@ -6,12 +6,15 @@
     Birdthdate:
       <%= "#{simulation.birthdate}" %>
     </p>
+    Age:
+      <%= "#{@user_age}" %>
+    </p>
     
   </div>
 
   <div>
     <p>
-    Simulation value: 
+    Simulated amount: 
       <%= "#{simulation.value}" %>
     </p>
   </div>
@@ -23,9 +26,12 @@
     </p>
   </div>
 
-  <div>
-    <p>
-    Proposals: 
-    </p>
+  <div id="proposals">
+    <h1>Proposals:</h1>
+    <% @proposals.each do |proposal| %>
+      <p>
+        <%= render "simulations/proposal", proposal: proposal %>
+      </p>
+    <% end %>
   </div>
 </div>

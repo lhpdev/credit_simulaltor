@@ -9,6 +9,8 @@ class SimulationsController < ApplicationController
 
   # GET /simulations/1 or /simulations/1.json
   def show
+    @user_age = helpers.calculate_age(@simulation.birthdate)
+    @proposals = SimulationProposal.where(simulation_id: @simulation.id).to_a
   end
 
   # GET /simulations/new
@@ -25,10 +27,13 @@ class SimulationsController < ApplicationController
     @simulation = Simulation.new(simulation_params)
     respond_to do |format|
       if @simulation.save
-        @proposal = CreditSimulationService.new(
+        # Extract this to be run in a background job in paralell 
+        CreditSimulationService.new(
           loan_value: @simulation.value,
           birthdate: @simulation.birthdate,
-          terms_in_months: @simulation.term_in_months
+          terms_in_months: @simulation.term_in_months,
+          user_id: @simulation.user_id,
+          simulation_id: @simulation.id
         ).call
 
         format.html { redirect_to @simulation, notice: "Simulation was successfully created." }

@@ -43,15 +43,12 @@ Things you may want to cover:
 
 # Next steps:
 
-- Install Rubocop
-- Update all the other actions to respond json
-- Decide if we are going to keep the authentication flow or not
 - Decide if we are going to create endpoints for proposals (I think it is a good idea)
+- Do not forget to create a rake task which will remove all simulation proposals where valid_proposal = false
 
 # Create APIs for each action and remove views
 
 - Add API versioning strategy - ok
-- Use serializers - ok
 
 # Improve endpoint to deal with 10.000 simulations at once
 

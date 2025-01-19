@@ -23,13 +23,6 @@
   </head>
 
   <body>
-    <div id="flash-messages">
-      <% flash.each do |type, message| %>
-        <div class="<%= flash_class(type) %>">
-          <%= message %>
-        </div>
-      <% end %>
-    </div>
     <%= yield %>
   </body>
 </html>

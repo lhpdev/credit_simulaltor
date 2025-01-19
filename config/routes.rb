@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :simulations
-  resources :simulation_proposals, only: %i[index show]
+  concern :api do
+    resources :simulations, only: %i[show index create update destroy edit]
+    resources :simulation_proposals, only: %i[index show]
+  end
 
-  get "dashboard", to: "dashboard#show"
+  namespace :v1 do
+    concerns :api
+  end
+
   get "home", to: "home#index"
   root "home#index"
 

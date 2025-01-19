@@ -3,7 +3,7 @@ class Simulation < ApplicationRecord
   validates :value, presence: true, numericality: { greater_than: 0 }
   validates :birthdate, presence: true
   validates :term_in_months, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  
+
   # Callbacks
   before_validation :ensure_attributes_present
 

@@ -14,7 +14,7 @@ class CreditSimulationService
   def call
     monthly_payment = calculate_fixed_installment
     total_amount = (monthly_payment * term_in_months).round(2)
-    
+
     SimulationProposal.create(
       total_amount: total_amount,
       monthly_payment: monthly_payment.round(2),

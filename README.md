@@ -34,3 +34,51 @@ Things you may want to cover:
   bin/rails server
 
 - ...
+
+# Add linter (rubocop)
+
+# Run services in background
+
+# Current step:
+
+# Next steps:
+
+- Install Rubocop
+- Update all the other actions to respond json
+- Decide if we are going to keep the authentication flow or not
+- Decide if we are going to create endpoints for proposals (I think it is a good idea)
+
+# Create APIs for each action and remove views
+
+- Add API versioning strategy - ok
+- Use serializers - ok
+
+# Improve endpoint to deal with 10.000 simulations at once
+
+- Considere utilizar técnicas de paralelismo e/ou processamento assíncrono para
+  melhorar a performance.
+- Nota: O candidato pode optar por lidar com a alta volumetria de forma assíncrona ou
+  síncrona, conforme achar mais adequado.
+- Abstraia no código a utilização de serviços de mensageria (como SQS, Kafka,
+  RabbitMQ), sem a necessidade de implementação completa. Descreva como seriam
+  utilizados em um cenário real.
+
+# conver funcionalities with tests
+
+- Escreva testes unitários e de integração para os principais componentes da aplicação.
+- Inclua testes de desempenho para garantir que a aplicação lide bem com alta
+  volumetria de cálculos.
+- Utilize ferramentas de teste adequadas (Jest, PyTest, JUnit, etc.)
+
+# Review application and refactor it adding patterns
+
+# Update README file with requests examples
+
+# Criar documentação com SWAGGER
+
+# Sugestão de Bônus:
+
+- Implementar notificação por email com os resultados da simulação.
+- Adicionar suporte para diferentes cenários de taxa de juros (fixa e variável).
+- Criar um Dockerfile e docker-compose para facilitar o setup da aplicação.
+- Adicionar suporte para diferentes moedas e conversão de taxas.

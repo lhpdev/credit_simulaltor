@@ -50,7 +50,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Rspec
-  gem 'rspec-rails', '~> 7.0.0'
+  gem "rspec-rails", "~> 7.0.0"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -63,4 +63,3 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-

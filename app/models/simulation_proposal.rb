@@ -15,6 +15,10 @@ class SimulationProposal
   field :monthly_payment, type: Float
   field :total_fees, type: Float
 
+  def self.active
+    where(valid_proposal: true)
+  end
+
   private
 
   def set_expiration

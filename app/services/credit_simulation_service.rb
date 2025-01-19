@@ -1,11 +1,11 @@
 
 class CreditSimulationService
-  attr_reader :loan_value, :terms_in_months, :birthdate, :user_id, :simulation_id, :yearly_tax
+  attr_reader :loan_value, :term_in_months, :birthdate, :user_id, :simulation_id, :yearly_tax
 
-  def initialize(loan_value:, birthdate:, terms_in_months:, user_id:, simulation_id:)
+  def initialize(loan_value:, birthdate:, term_in_months:, user_id:, simulation_id:)
     @loan_value = loan_value
     @birthdate = birthdate
-    @terms_in_months = terms_in_months
+    @term_in_months = term_in_months
     @user_id = user_id
     @simulation_id = simulation_id
     @yearly_tax = determine_yearly_tax
@@ -13,7 +13,7 @@ class CreditSimulationService
 
   def call
     monthly_payment = calculate_fixed_installment
-    total_amount = (monthly_payment * terms_in_months).round(2)
+    total_amount = (monthly_payment * term_in_months).round(2)
     
     SimulationProposal.create(
       total_amount: total_amount,
@@ -42,8 +42,8 @@ class CreditSimulationService
 
   def calculate_fixed_installment
     monthly_tax = yearly_tax / 12.0
-    return loan_value / terms_in_months if monthly_tax.zero?
+    return loan_value / term_in_months if monthly_tax.zero?
 
-    (loan_value * monthly_tax) / (1 - (1 + monthly_tax) ** -terms_in_months)
+    (loan_value * monthly_tax) / (1 - (1 + monthly_tax) ** -term_in_months)
   end
 end

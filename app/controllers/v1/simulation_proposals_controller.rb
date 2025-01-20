@@ -3,7 +3,9 @@ class V1::SimulationProposalsController < ApplicationController
 
   # GET /v1/simulations.json
   def index
-    proposals = SimulationProposal.all
+    proposals = Rails.cache.fetch("simulation_proposals", expires_in: 1.hour) do
+      SimulationProposal.all
+    end
     render json: proposals, status: :ok
   end
 
@@ -16,7 +18,7 @@ class V1::SimulationProposalsController < ApplicationController
 
   def set_proposal
     @proposal = SimulationProposal.find(params.require(:id))
-  rescue ActiveRecord::RecordNotFound
+  rescue Mongoid::Errors::DocumentNotFound
     render json: { error: "Proposal not found" }, status: :not_found
   end
 end

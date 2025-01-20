@@ -3,7 +3,9 @@ class V1::SimulationsController < ApplicationController
 
   # GET /v1/simulations.json
   def index
-    simulations = Simulation.all
+    simulations = Rails.cache.fetch("simulations", expires_in: 1.hour) do
+      Simulation.all
+    end
     render json: simulations, status: :ok
   end
 

@@ -52,11 +52,15 @@ group :development, :test do
   # Rspec
   gem "rspec-rails", "~> 7.0.0"
 
+  # FactoryBot
+  gem "factory_bot_rails"
+
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "shoulda-matchers"
 end
 
 group :development do

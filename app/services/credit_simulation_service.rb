@@ -2,7 +2,7 @@ class CreditSimulationService
   attr_reader :loan_value, :term_in_months, :birthdate, :user_id, :simulation_id, :yearly_tax
 
   def initialize(loan_value:, birthdate:, term_in_months:, user_id:, simulation_id:)
-    @loan_value = BigDecimal(loan_value.to_s)
+    @loan_value = loan_value
     @birthdate = birthdate
     @term_in_months = term_in_months
     @user_id = user_id
